@@ -1,0 +1,306 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DAA Outputs Documentation</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Design, Analysis, and Algorithm Outputs</h1>
+    <p>
+        A suite of Python-based tools designed for efficient data processing<br>
+        and visualization, emphasizing algorithmic design principles and<br>
+        performance analysis to ensure optimal handling of small or large datasets.
+    </p>
+</header>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="#bubblesort">Bubble Sort</a></li>
+        <li><a href="#flip">Flip Booleans</a></li>
+        <li><a href="#stock">Stock Plot</a></li>
+        <li><a href="#subset-sum">Subset Sum</a></li>
+        <li><a href="#convexhull-chatbot">Convex Hull Chatbot</a></li>
+        <li><a href="#instructions">How to Run Locally</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <!-- Introduction -->
+    <section class="project-section">
+        <h2>Welcome!</h2>
+        <p>This documentation site showcases four Python programs developed as part of the DAA requirements. Each tool processes datasets, applies algorithms, and visualizes results in different ways.</p>
+        <p>All pages are static — this site only serves as a <strong>documentation hub</strong>, not an interactive web app. If you'd like to test the scripts yourself:</p>
+        <ul>
+            <li>Download the full repository</li>
+            <li>Run the `.py` files with Python</li>
+            <li>
+                Use this link for demo (full functions not included) —
+                <a href="https://7e12-2001-fd8-b730-5100-c32-1aa4-cc9b-cd3.ngrok-free.app" target="_blank">Launch Demo</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Bubble Sort -->
+    <section id="bubblesort" class="project-section">
+        <h2>Bubble Sort</h2>
+        <p><strong>Dataset:</strong> Updated_Mobile_Dataset.csv</p>
+        <p>This script reads a CSV file containing mobile phone data, validates its contents, and performs Bubble Sort on the 'Price' column based on user preference (ascending or descending).</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Data validation before sorting</li>
+            <li>Skips invalid rows and reports them</li>
+            <li>Saves sorted result to a new CSV file</li>
+        </ul>
+        <h3>Sample Input Prompt</h3>
+        <pre><code>
+Enter minimum total score: 70
+Enter maximum total score: 90
+Enter minimum study hours per week: 10
+Enter maximum study hours per week: 20
+Enter maximum stress level (1-10): 5
+Enter the number of students required for the group (Maximum 50): 5
+        </code></pre>
+        <h3>Example Output</h3>
+        <pre><code>
+Sorted dataset saved to Datasets/Sorted_Mobile_Dataset_Ascending.csv
+Sorting completed in 0:05 (5 seconds)
+        </code></pre>
+    </section>
+
+    <!-- Flip Booleans -->
+    <section id="flip" class="project-section">
+        <h2>Flip Booleans</h2>
+        <p><strong>Dataset:</strong> machine_problems_dataset.csv</p>
+        <p>This script reads from a CSV file and flips boolean values ('True' <-> 'False') in the fourth column after validating that the dataset is properly formatted.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Checks for missing or extra columns</li>
+            <li>Reports invalid boolean values</li>
+            <li>Displays modified dataset and change count</li>
+        </ul>
+        <h3>Sample Dataset Before Flip</h3>
+        <pre><code>
+ID,Problem,Status,Solved
+1,Sorting,Easy,True
+2,Searching,Medium,False
+3,Hashing,Hard,True
+        </code></pre>
+        <h3>Example Output After Flip</h3>
+        <pre><code>
+Modified Dataset:
+['ID', 'Problem', 'Status', 'Solved']
+['1', 'Sorting', 'Easy', 'False']
+['2', 'Searching', 'Medium', 'True']
+
+Total number of changes: 1
+        </code></pre>
+
+    </section>
+
+    <!-- Stock Plot -->
+    <section id="stock" class="project-section">
+         <h2>Stock GDP vs Population Plot</h2>
+        <p><strong>Dataset:</strong> None (hardcoded)</p>
+        <p>This script generates a scatter plot comparing GDP growth rate against population growth from 2014–2023 using hardcoded values. It calculates and displays the correlation coefficient and draws a trendline using linear regression.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Displays correlation coefficient (~0.94)</li>
+            <li>Annotates each point with year and GDP value</li>
+            <li>Draws a trendline using linear regression</li>
+        </ul>
+        <h3>Hardcoded Data Used</h3>
+        <pre><code>
+Years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+GDP_growth = [2.1, 2.4, 2.5, 2.6, 2.9, 3.0, 2.7, 2.8, 3.1, 3.3]
+Population_growth = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9]
+        </code></pre>
+        <h3>Example Output</h3>
+        <p>The output is a scatter plot showing strong positive correlation between GDP and population growth, with a trendline and annotated points.</p>
+        <p><strong>Correlation Coefficient:</strong> ~0.94</p>
+
+    </section>
+
+    <!-- Subset Sum -->
+    <section id="subset-sum" class="project-section">
+        <h2>Subset Sum Group Selector</h2>
+        <p><strong>Dataset:</strong> Students_Grading_Dataset.csv</p>
+        <p>This script uses an iterative backtracking approach to find a group of students who meet specified constraints such as minimum/maximum scores, study hours, and maximum stress level.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Allows user-defined constraints</li>
+            <li>Selects up to 50 students</li>
+            <li>Displays results with bar graphs and tables</li>
+        </ul>
+        <h3>Sample Input Prompt</h3>
+        <pre><code>
+Enter minimum total score: 70
+Enter maximum total score: 90
+Enter minimum study hours per week: 10
+Enter maximum study hours per week: 20
+Enter maximum stress level (1-10): 5
+Enter the number of students required for the group (Maximum 50): 5
+        </code></pre>
+        <h3>Example Output</h3>
+        <pre><code>
+Solution Found! Displaying the selected students...
+
+Selected Students:
+   Student_ID     Full_Name      Email         Gender  Age Department  Total_Score  Study_Hours_per_Week  Stress_Level
+0           1   John Doe      john@example.com    Male   20       CS             85               15                4
+1           3   Alice Smith   alice@example.com Female  22       IT               88               18                5
+2          10   Bob Johnson   bob@example.com    Male   21       CS               80               16                3
+3          15   Carol White   carol@example.com Female  20       IT               89               17                4
+4          22   Dave Brown    dave@example.com   Male   23       CS               82               15                5
+        </code></pre>
+        <h3>Bar Graph Example</h3>
+        <p>The script also shows a side-by-side bar graph with three metrics:</p>
+        <ul>
+            <li>Total Score</li>
+            <li>Study Hours per Week</li>
+            <li>Stress Level</li>
+        </ul>
+
+    </section>
+
+    <!-- Convex Hull Chatbot -->
+    <section id="convexhull-chatbot" class="project-section">
+        <h2>Convex Hull Chatbot <a href="https://example.com/testing-files" target="_blank">[Access files for testing]</a></h2>
+
+        <!-- Video demo placeholder -->
+        <div class="video-container" style="margin-bottom: 1em;">
+            <!-- You can embed your video here -->
+            <video controls width="100%">
+                <source src="convexhull.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <p>This program is a Flask-based chatbot web application that uses a custom LLaMA 3 model—called <code>"convexhullmodel"</code>—to answer questions specifically about the convex hull algorithm.</p>
+
+        <h3>🔧 Backend Components</h3>
+        <ol>
+            <li><strong>Flask App</strong><br>
+                Provides a simple web server with two routes:
+                <ul>
+                    <li><code>/</code>: Serves the main web page (likely <code>index.html</code>).</li>
+                    <li><code>/chat</code>: Accepts POST requests for user messages and returns model responses.</li>
+                </ul>
+            </li>
+            <li><strong>Custom Language Model</strong><br>
+                <code>OllamaLLM(model="convexhullmodel")</code> uses Langchain with Ollama to load and query a local LLaMA 3 model. This model focuses on convex hull concepts, including:
+                <ul>
+                    <li>Definitions</li>
+                    <li>Algorithms (Graham's Scan, Gift Wrapping, QuickHull)</li>
+                    <li>Historical context</li>
+                    <li>Applications</li>
+                </ul>
+            </li>
+            <li><strong>Conversation Handling</strong><br>
+                Uses an in-memory <code>conversation_history</code> list (tracks last 20 messages). Sends full context as a prompt for coherent replies.
+            </li>
+        </ol>
+
+        <h3>💬 Chatbot Behavior</h3>
+        <p>The system prompt defines behavior:</p>
+        <ul>
+            <li>Friendly, informative, convex hull–focused.</li>
+            <li>Deflects unrelated questions:
+                <ul>
+                    <li><strong>Personal info</strong> → Says it has none.</li>
+                    <li><strong>General algorithms</strong> → Says it only covers convex hulls.</li>
+                    <li><strong>Emotions</strong> → Says it cannot feel.</li>
+                    <li><strong>Off-topic/spam</strong> → Redirects politely.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>🔍 Key Features</h3>
+        <table>
+            <tr><th>Feature</th><th>Description</th></tr>
+            <tr><td>Web framework</td><td>Flask</td></tr>
+            <tr><td>Model runtime</td><td>Langchain + Ollama + LLaMA 3</td></tr>
+            <tr><td>Use case</td><td>Educational chatbot for convex hull algorithm</td></tr>
+            <tr><td>Custom prompt</td><td>Strict scope-limited system message</td></tr>
+            <tr><td>Frontend</td><td>Served via <code>index.html</code></td></tr>
+            <tr><td>Chat input</td><td>Sent via JavaScript to <code>/chat</code></td></tr>
+            <tr><td>Context management</td><td>Tracks up to 20 exchanges</td></tr>
+            <tr><td>Thinking simulation</td><td>Appends “thinking...” temporarily</td></tr>
+        </table>
+
+        <h3>🧠 Example Questions It Handles Well</h3>
+        <ul>
+            <li>"What is the convex hull algorithm?"</li>
+            <li>"How does Graham’s scan work?"</li>
+            <li>"Who invented convex hulls?"</li>
+            <li>"What’s your favorite food?" → Explains it’s not a person.</li>
+        </ul>
+
+        <h3>🚫 Limitations</h3>
+        <ul>
+            <li>Doesn’t answer non–convex hull questions</li>
+            <li>Doesn’t provide personal or emotional insights</li>
+            <li>Doesn’t store session history between visits</li>
+        </ul>
+    </section>
+
+    <!-- How to Run Locally -->
+    <section id="instructions" class="project-section">
+        <h2>How to Test the Programs Locally (Does not include the chatbot in this section)</h2>
+        <p>This website does not allow interactive execution of the Python scripts. However, you can download and run all programs yourself.</p>
+        <h3>Steps to Run Locally</h3>
+        <ol>
+            <li>✅ Clone the repo:
+                <pre><code>git clone https://github.com/yourusername/DAA-Final-Projects.git </code></pre>
+            </li>
+            <li>📁 Make sure these files exist:
+                <ul>
+                    <li>`python_scripts/bubblesort.py`</li>
+                    <li>`python_scripts/flip.py`</li>
+                    <li>`python_scripts/stock.py`</li>
+                    <li>`python_scripts/subset_sum.py`</li>
+                    <li>Datasets folder with:
+                        <ul>
+                            <li>`Updated_Mobile_Dataset.csv`</li>
+                            <li>`machine_problems_dataset.csv`</li>
+                            <li>`Students_Grading_Dataset.csv`</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>📦 Install dependencies:
+                <pre><code>pip install flask pandas matplotlib numpy tqdm</code></pre>
+            </li>
+            <li>💻 To run individual scripts:
+                <pre><code>python python_scripts/subset_sum.py</code></pre>
+            </li>
+            <li>🌐 Or use the Flask-powered web interface:
+                <pre><code>python app.py<br>http://localhost:5000</code></pre>
+            </li>
+        </ol>
+        <h3>Requirements</h3>
+        <ul>
+            <li>Python 3.x</li>
+            <li>pandas</li>
+            <li>matplotlib</li>
+            <li>Flask (for web interface)</li>
+            <li>tqdm (optional for progress display)</li>
+        </ul>
+        <h3>Note</h3>
+        <p>GitHub Pages cannot run Python code directly. This page is meant for educational purposes only. For full interactivity, please run the project locally or deploy it using Heroku/Render.</p>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Von Jethro E. Landicho | DAA Final Project</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!-- templates/bubblesort.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ program.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>{{ program.title }}</h1>
+    <p>{{ program.desc }}</p>
+</header>
+
+<main class="run-page">
+    <section class="project-section">
+        <h2>Description</h2>
+        <p>This script reads a CSV file containing mobile phone data, validates its contents, and performs Bubble Sort on the 'Price' column using predefined settings.</p>
+    </section>
+
+    <section class="project-section">
+        <h2>How It Works</h2>
+        <p>The program follows these steps:</p>
+        <ol>
+            <li><strong>Loads Data:</strong> Reads the CSV file: <code>Updated_Mobile_Dataset.csv</code></li>
+            <li><strong>Validates Data:</strong> Checks for missing values and invalid price entries</li>
+            <li><strong>Sorts by Price:</strong> Uses Bubble Sort algorithm in <strong>ascending order</strong> (predefined)</li>
+            <li><strong>Saves Output:</strong> Writes the sorted results into a new CSV file: <code>Sorted_Mobile_Dataset_Ascending.csv</code></li>
+        </ol>
+    </section>
+
+    <section class="project-section">
+        <h2>Execution Details</h2>
+        <ul>
+            <li><strong>Algorithm:</strong> Bubble Sort</li>
+            <li><strong>Sorting Criteria:</strong> Price (Ascending)</li>
+            <li><strong>Input File:</strong> <code>Updated_Mobile_Dataset.csv</code></li>
+            <li><strong>Output File:</strong> <code>Sorted_Mobile_Dataset_Ascending.csv</code></li>
+            <li><strong>Dataset Size:</strong> First 500 rows used for sorting</li>
+            <li><strong>Time Complexity:</strong> O(n²) — suitable for small datasets like this one</li>
+        </ul>
+    </section>
+
+    <section class="project-section">
+        <h2>Sample Execution Output</h2>
+        <pre><code>
+Sorted dataset saved to Datasets/Sorted_Mobile_Dataset_Ascending.csv
+Sorting completed in 0:05 (5 seconds)
+        </code></pre>
+    </section>
+
+    {% if result %}
+    <div class="output">
+        <strong>Program Output:</strong><br>
+        {{ result.stdout }}
+        {% if result.stderr %}
+            <br><strong style="color:red;">Error:</strong><br>
+            {{ result.stderr }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="btn-back">Back to Home</a>
+</main>
+
+<footer>
+    <p>Made by Your Name | DAA Final Project Showcase</p>
+</footer>
+
+</body>
+</html>

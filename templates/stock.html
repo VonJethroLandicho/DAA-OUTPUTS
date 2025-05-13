@@ -1,0 +1,71 @@
+<!-- templates/stock.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock GDP vs Population Plot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Stock GDP vs Population Plot</h1>
+    <p>Displays a scatter plot showing correlation between population and GDP growth.</p>
+</header>
+
+<main class="run-page">
+    <section class="project-section">
+        <h2>Description</h2>
+        <p>This script generates a scatter plot comparing GDP growth rate against population growth from 2014–2023 using hardcoded values. It calculates and displays the correlation coefficient and draws a trendline using linear regression.</p>
+    </section>
+
+    <section class="project-section">
+        <h2>How It Works</h2>
+        <p>The program performs the following steps:</p>
+        <ol>
+            <li><strong>Loads Hardcoded Data:</strong> Uses predefined values for years, GDP growth, and population growth</li>
+            <li><strong>Generates Scatter Plot:</strong> Plots GDP vs population growth with year labels</li>
+            <li><strong>Calculates Correlation:</strong> Computes Pearson correlation coefficient</li>
+            <li><strong>Adds Trendline:</strong> Uses linear regression to show overall direction</li>
+        </ol>
+    </section>
+
+    <section class="project-section">
+        <h2>Execution Details</h2>
+        <ul>
+            <li><strong>Data Source:</strong> None (hardcoded)</li>
+            <li><strong>Years Covered:</strong> 2014 – 2023</li>
+            <li><strong>GDP Growth Values:</strong> [2.1, 2.4, 2.5, 2.6, 2.9, 3.0, 2.7, 2.8, 3.1, 3.3]</li>
+            <li><strong>Population Growth:</strong> [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9]</li>
+            <li><strong>Correlation:</strong> ~0.94 (strong positive correlation)</li>
+        </ul>
+    </section>
+
+    <section class="project-section">
+        <h2>Sample Output Explanation</h2>
+        <pre><code>
+Correlation Coefficient: 0.94
+Plot generated with trendline showing strong positive correlation.
+        </code></pre>
+    </section>
+
+    {% if result %}
+    <div class="output">
+        <strong>Program Output:</strong><br>
+        {{ result.stdout }}
+        {% if result.stderr %}
+            <br><strong style="color:red;">Error:</strong><br>
+            {{ result.stderr }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="btn-back">Back to Home</a>
+</main>
+
+<footer>
+    <p>Made by Your Name | DAA Final Project Showcase</p>
+</footer>
+
+</body>
+</html>

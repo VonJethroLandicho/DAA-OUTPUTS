@@ -1,0 +1,92 @@
+<!-- templates/subset_sum.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subset Sum Group Selector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Subset Sum Group Selector</h1>
+    <p>Finds students matching score, study hours, and stress level using backtracking.</p>
+</header>
+
+<main class="run-page">
+    <section class="project-section">
+        <h2>Description</h2>
+        <p>This script uses an iterative backtracking approach to find a group of students who meet specified constraints such as minimum/maximum scores, study hours, and maximum stress level.</p>
+    </section>
+
+    <section class="project-section">
+        <h2>How It Works</h2>
+        <p>The program performs these steps:</p>
+        <ol>
+            <li><strong>Loads Dataset:</strong> Reads from <code>Students_Grading_Dataset.csv</code></li>
+            <li><strong>Filters Students:</strong> Based on predefined criteria like score, study hours, and stress level</li>
+            <li><strong>Uses Backtracking:</strong> To select the best possible group of students</li>
+            <li><strong>Displays Results:</strong> Shows student info in table + bar graph showing Total Score, Study Hours, and Stress Level</li>
+        </ol>
+    </section>
+
+    <section class="project-section">
+        <h2>Execution Details</h2>
+        <ul>
+            <li><strong>Dataset Used:</strong> <code>Students_Grading_Dataset.csv</code></li>
+            <li><strong>Score Range:</strong> 70 – 90</li>
+            <li><strong>Study Hours per Week:</strong> 10 – 20</li>
+            <li><strong>Max Stress Level:</strong> 5</li>
+            <li><strong>Number of Students Required:</strong> 5</li>
+            <li><strong>Algorithm:</strong> Iterative Backtracking</li>
+        </ul>
+    </section>
+
+    <section class="project-section">
+        <h2>Sample Criteria Used</h2>
+        <pre><code>
+Minimum Total Score: 70
+Maximum Total Score: 90
+Minimum Study Hours: 10
+Maximum Study Hours: 20
+Stress Level: 5
+Number of Students: 5
+        </code></pre>
+    </section>
+
+    <section class="project-section">
+        <h2>Example Output</h2>
+        <p>The selected students are displayed using both a bar chart and a table. Each student meets all the required criteria.</p>
+        <pre><code>
+Solution Found! Displaying the selected students...
+
+Selected Students:
+   Student_ID     Full_Name      Email         Gender  Age Department  Total_Score  Study_Hours_per_Week  Stress_Level
+0           1   John Doe      john@example.com    Male   20       CS             85               15                4
+1           3   Alice Smith   alice@example.com Female  22       IT               88               18                5
+2          10   Bob Johnson   bob@example.com    Male   21       CS               80               16                3
+3          15   Carol White   carol@example.com Female  20       IT               89               17                4
+4          22   Dave Brown    dave@example.com   Male   23       CS               82               15                5
+        </code></pre>
+    </section>
+
+    {% if result %}
+    <div class="output">
+        <strong>Program Output:</strong><br>
+        {{ result.stdout }}
+        {% if result.stderr %}
+            <br><strong style="color:red;">Error:</strong><br>
+            {{ result.stderr }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="btn-back">Back to Home</a>
+</main>
+
+<footer>
+    <p>Made by Your Name | DAA Final Project Showcase</p>
+</footer>
+
+</body>
+</html>

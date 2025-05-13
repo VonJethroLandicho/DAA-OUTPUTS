@@ -1,0 +1,148 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAA OUTPUTS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Design, Analysis, and Algorithm Outputs</h1>
+    <p>Interactive Web Application for Data Analysis and Algorithm Implementation (DEMO ONLY)</p>
+</header>
+
+<main>
+    <!-- Bubble Sort -->
+    <section class="project-card">
+        <h2>Bubble Sort</h2>
+        <p><strong>Dataset:</strong> <code>Updated_Mobile_Dataset.csv</code></p>
+        <p>This script performs a Bubble Sort on mobile phone pricing data based on user preference (ascending/descending).</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>Data validation before sorting</li>
+            <li>Skips invalid rows and reports them</li>
+            <li>Saves sorted result to a new CSV file</li>
+        </ul>
+
+        <h3>Example Input Prompt</h3>
+        <pre><code>
+Would you like to sort by price?
+Enter 'A' for ascending or 'D' for descending order: A
+        </code></pre>
+
+        <h3>Example Output</h3>
+        <pre><code>
+Sorted dataset saved to Datasets/Sorted_Mobile_Dataset_Ascending.csv
+Sorting completed in 0:05 (5 seconds)
+        </code></pre>
+
+        <form method="post" action="/bubblesort">
+            <button type="submit" class="btn-run">Try Out (Available Locally Only)</button>
+        </form>
+    </section>
+
+    <!-- Flip Booleans -->
+    <section class="project-card">
+        <h2>Flip Booleans</h2>
+        <p><strong>Dataset:</strong> <code>machine_problems_dataset.csv</code></p>
+        <p>This script flips boolean values ('True' <-> 'False') in the fourth column after validating that the dataset is properly formatted.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>Checks for missing or extra columns</li>
+            <li>Reports invalid boolean values</li>
+            <li>Displays modified dataset and change count</li>
+        </ul>
+
+        <h3>Example Input Dataset</h3>
+        <pre><code>
+ID,Problem,Status,Solved
+1,Sorting,Easy,True
+2,Searching,Medium,False
+3,Hashing,Hard,True
+        </code></pre>
+
+        <h3>Example Output</h3>
+        <pre><code>
+Modified Dataset:
+['ID', 'Problem', 'Status', 'Solved']
+['1', 'Sorting', 'Easy', 'False']
+['2', 'Searching', 'Medium', 'True']
+
+Total number of changes: 1
+        </code></pre>
+
+        <form method="post" action="/flip">
+            <button type="submit" class="btn-run">Try Out (Available Locally Only)</button>
+        </form>
+    </section>
+
+    <!-- Stock Plot -->
+    <section class="project-card">
+        <h2>Stock GDP vs Population Plot</h2>
+        <p><strong>Dataset:</strong> None (hardcoded values)</p>
+        <p>Generates a scatter plot showing correlation between population and GDP growth from 2014–2023 using hardcoded values. It also calculates and draws a trendline using linear regression.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>Displays correlation coefficient</li>
+            <li>Annotates each point with year and GDP value</li>
+            <li>Draws a trendline using linear regression</li>
+        </ul>
+
+        <h3>Example Hardcoded Data</h3>
+        <pre><code>
+Years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+GDP_growth = [2.1, 2.4, 2.5, 2.6, 2.9, 3.0, 2.7, 2.8, 3.1, 3.3]
+Population_growth = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9]
+        </code></pre>
+
+        <h3>Example Output</h3>
+        <p>Graph shows GDP growth rate vs population growth with a correlation coefficient and trendline.</p>
+
+        <form method="post" action="/stock">
+            <button type="submit" class="btn-run">Try Out (Available Locally Only)</button>
+        </form>
+    </section>
+
+    <!-- Subset Sum -->
+    <section class="project-card">
+        <h2>Subset Sum Group Selector</h2>
+        <p><strong>Dataset:</strong> <code>Students_Grading_Dataset.csv</code></p>
+        <p>Finds a subset of students matching score, study hours, and stress level criteria using backtracking.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>Allows user-defined constraints</li>
+            <li>Selects up to 50 students</li>
+            <li>Displays results with bar graphs and tables</li>
+        </ul>
+
+        <h3>Example User Input</h3>
+        <pre><code>
+Enter minimum total score: 70
+Enter maximum total score: 90
+Enter minimum study hours per week: 10
+Enter maximum study hours per week: 20
+Enter maximum stress level (1-10): 5
+Enter the number of students required for the group (Maximum 50): 5
+        </code></pre>
+
+        <h3>Example Output</h3>
+        <p>Bar graph showing selected students’ scores, study hours, and stress levels + table with student details</p>
+
+        <form method="post" action="/subset_sum">
+            <button type="submit" class="btn-run">Try Out (Available Locally Only)</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>Von Jethro E.Landicho  | DAA Final Project</p>
+</footer>
+
+</body>
+</html>

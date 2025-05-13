@@ -1,0 +1,84 @@
+<!-- templates/flip.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flip Booleans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Flip Booleans</h1>
+    <p>Flips 'True' to 'False' and vice versa in machine problems dataset.</p>
+</header>
+
+<main class="run-page">
+    <section class="project-section">
+        <h2>Description</h2>
+        <p>This script reads from a CSV file and flips boolean values ('True' <-> 'False') in the fourth column after validating that the dataset is properly formatted. It reports any invalid or missing data and saves the modified dataset into a new file.</p>
+    </section>
+
+    <section class="project-section">
+        <h2>How It Works</h2>
+        <p>The program performs the following steps:</p>
+        <ol>
+            <li><strong>Reads CSV File:</strong> Loads <code>machine_problems_dataset.csv</code></li>
+            <li><strong>Validates Data:</strong> Checks if all required columns are present and valid</li>
+            <li><strong>Flips Boolean Values:</strong> In the "Solved" column — 'True' becomes 'False' and vice versa</li>
+            <li><strong>Saves Output:</strong> Writes modified data to <code>flipped_machine_problems_dataset.csv</code></li>
+        </ol>
+    </section>
+
+    <section class="project-section">
+        <h2>Execution Details</h2>
+        <ul>
+            <li><strong>Input File:</strong> <code>machine_problems_dataset.csv</code></li>
+            <li><strong>Output File:</strong> <code>flipped_machine_problems_dataset.csv</code></li>
+            <li><strong>Column Flipped:</strong> 4th column ("Solved")</li>
+            <li><strong>Validation:</strong> Checks for missing or extra columns</li>
+        </ul>
+    </section>
+
+    <section class="project-section">
+        <h2>Sample Dataset Before Flip</h2>
+        <pre><code>
+ID,Problem,Status,Solved
+1,Sorting,Easy,True
+2,Searching,Medium,False
+3,Hashing,Hard,True
+        </code></pre>
+    </section>
+
+    <section class="project-section">
+        <h2>Example Output After Flip</h2>
+        <pre><code>
+Modified Dataset:
+['ID', 'Problem', 'Status', 'Solved']
+['1', 'Sorting', 'Easy', 'False']
+['2', 'Searching', 'Medium', 'True']
+
+Total number of changes: 1
+        </code></pre>
+    </section>
+
+    {% if result %}
+    <div class="output">
+        <strong>Program Output:</strong><br>
+        {{ result.stdout }}
+        {% if result.stderr %}
+            <br><strong style="color:red;">Error:</strong><br>
+            {{ result.stderr }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="btn-back">Back to Home</a>
+</main>
+
+<footer>
+    <p>Made by Your Name | DAA Final Project Showcase</p>
+</footer>
+
+</body>
+</html>
